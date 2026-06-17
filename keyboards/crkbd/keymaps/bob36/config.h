@@ -26,6 +26,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define QUICK_TAP_TERM 0  // value 0 disables quick tap term
 #define PERMISSIVE_HOLD
 
+// --- Latency & Responsiveness Enhancements ---
+#define HOLD_ON_OTHER_KEY_PRESS // Instantly resolves shortcuts on nested keypresses
+#define SQUEEZE_FAST_TYPING     // Eliminates buffer lag during fast alpha typing rolls
+
+// --- Hardware Optimization ---
+#define DEBOUNCE 2              // Speeds up physical switch registration
+
+// If you find that your regular letters still feel like they have a tiny "delay" before showing up on your screen while typing words normally, try adding:
+// #define IGNORE_MOD_TAP_INTERRUPT
+
 #ifdef RGBLIGHT_ENABLE
     #define RGBLIGHT_EFFECT_BREATHING
     #define RGBLIGHT_EFFECT_RAINBOW_MOOD
