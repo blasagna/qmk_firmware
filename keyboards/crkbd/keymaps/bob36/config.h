@@ -22,7 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 //#define USE_MATRIX_I2C
 
-#define TAPPING_TERM 175
+#define TAPPING_TERM 225
 #define QUICK_TAP_TERM 0  // value 0 disables quick tap term
 #define PERMISSIVE_HOLD
 
