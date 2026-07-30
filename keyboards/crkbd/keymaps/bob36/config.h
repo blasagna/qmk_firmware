@@ -22,16 +22,22 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 //#define USE_MATRIX_I2C
 
-#define TAPPING_TERM 225
+#define TAPPING_TERM 200
 #define QUICK_TAP_TERM 0  // value 0 disables quick tap term
 #define PERMISSIVE_HOLD
 
-// --- Latency & Responsiveness Enhancements ---
-// #define HOLD_ON_OTHER_KEY_PRESS // Instantly resolves shortcuts on nested keypresses
-#define SQUEEZE_FAST_TYPING     // Eliminates buffer lag during fast alpha typing rolls
+// --- Home row mod disambiguation ---
+// Opposite-hands rule: a mod-tap chorded with a key on the SAME hand within the
+// tapping term settles as a tap. Kills same-hand rolls firing modifiers.
+#define CHORDAL_HOLD
+// During fast typing, a mod-tap pressed within 150ms of the previous alpha is
+// sent immediately as a tap. Removes the release-delay on rolls.
+#define FLOW_TAP_TERM 150
 
 // --- Hardware Optimization ---
-#define DEBOUNCE 2              // Speeds up physical switch registration
+// Paired with DEBOUNCE_TYPE = asym_eager_defer_pk in rules.mk: key-down is
+// reported immediately, so this only gates key-up / chatter suppression.
+#define DEBOUNCE 5
 
 #ifdef RGBLIGHT_ENABLE
     #define RGBLIGHT_EFFECT_BREATHING

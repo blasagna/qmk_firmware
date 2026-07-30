@@ -18,6 +18,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 
+#ifdef CHORDAL_HOLD
+// Handedness for the Chordal Hold "opposite hands" rule. Thumb keys are '*'
+// (exempt) so same-hand chords like Ctrl + left-thumb Backspace still hold.
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT_split_3x6_3(
+      'L',     'L',     'L',     'L',     'L',     'L',                'R',     'R',     'R',     'R',     'R',     'R',
+      'L',     'L',     'L',     'L',     'L',     'L',                'R',     'R',     'R',     'R',     'R',     'R',
+      'L',     'L',     'L',     'L',     'L',     'L',                'R',     'R',     'R',     'R',     'R',     'R',
+                                 '*',     '*',     '*',                '*',     '*',     '*'
+);
+#endif
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
